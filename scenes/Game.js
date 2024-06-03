@@ -17,8 +17,11 @@ export default class Game extends Phaser.Scene {
   this.load.image("cielo", "../public/assets/Cielo.webp");
   this.load.image("plataforma", "../public/assets/platform.png");
   this.load.image("personaje", "../public/assets/Ninja.png");
-  this.load.image("diamante", "../public/assets/diamant.webp")
-  this.load.image("rombo", "../public/assets/rombo.webp")
+  this.load.image("diamond", "../public/assets/diamond.webp");
+  this.load.image("triangle", "../public/assets/triangle.png");
+  this.load.image("square", "../public/assets/square.png");
+  this.load.image("bomb", "../public/assets/bomb.png");
+
 
   }
 
@@ -65,14 +68,14 @@ export default class Game extends Phaser.Scene {
   
   onSecond() {
       // crear recolector 
-      const tipos = ["diamante", "rombo"];
+      const tipos = ["diamond", "triangle","square","bomb"];
       const tipo = Phaser.Math.RND.pick(tipos);
 
       let recolectable = this.recolectable.create(
         Phaser.Math.Between(10, 790),
         0,
         tipo
-      ).setScale(0.1)
+      ).setScale(0.03)
       
        //rebote de item
        const rebote = Phaser.Math.FloatBetween(0.4, 0.8);
