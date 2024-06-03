@@ -52,7 +52,7 @@ export default class Game extends Phaser.Scene {
     this.recolectable = this.physics.add.group();
     this.physics.add.collider(this.personaje, this.recolectable);
     this.physics.add.collider(this.plataformas, this.recolectable);
-    this.physics.add.collider(this.recolectable, this.recolectable);
+   
     
     //evento 1 segundo
     this.time.addEvent({
@@ -73,6 +73,10 @@ export default class Game extends Phaser.Scene {
         0,
         tipo
       ).setScale(0.1)
+      
+       //rebote de item
+       const rebote = Phaser.Math.FloatBetween(0.4, 0.8);
+       recolectable.setBounce(rebote);
     }
   
 
