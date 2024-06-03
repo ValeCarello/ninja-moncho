@@ -64,6 +64,22 @@ export default class Game extends Phaser.Scene {
       callbackScope:this,
       loop: true
     });
+    
+    //contador de tiempo
+    this.timerText = this.add.text(10, 10, `tiempo restante: ${this.timer}`, {
+      fontSize: "32px",
+      fill: "#fff",
+    });
+
+    //puntos
+    this.scoreText = this.add.text(
+      10,
+      50,
+      `Puntaje: ${this.score}
+        T: ${this.shapes["triangulo"].count}
+        C: ${this.shapes["cuadrado"].count}
+        R: ${this.shapes["rombo"].count}`
+    );
   }
   
   onSecond() {
