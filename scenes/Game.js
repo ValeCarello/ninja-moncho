@@ -11,9 +11,9 @@ export default class Game extends Phaser.Scene {
     this.timer = 30;
     this.score = 0;
     this.shapes = {
-      triangulo: { points: 10, count: 0 },
-      cuadrado: { points: 20, count: 0 },
-      rombo: { points: 30, count: 0 },
+      triangle: { points: 10, count: 0 },
+      square: { points: 20, count: 0 },
+      diamond: { points: 30, count: 0 },
       bomb: { points: -10, count: 0 },
     };
   }
@@ -93,10 +93,10 @@ export default class Game extends Phaser.Scene {
     this.scoreText = this.add.text(
       10,
       50,
-    `Score: ${this.score}
+    `Puntaje: ${this.score}
         T: ${this.shapes["triangle"].count}
-        C: ${this.shapes["square"].count}
-        R: ${this.shapes["diamond"].count}` 
+        S: ${this.shapes["square"].count}
+        D: ${this.shapes["diamond"].count}` 
     );
 
     //agregar collider entre recolectables y personaje
@@ -154,7 +154,7 @@ export default class Game extends Phaser.Scene {
       Phaser.Math.Between(10, 790),
       0,
       tipo
-    ).setScale(0.09)
+    ).setScale(0.05)
     recolectable.setVelocity(0, 100);
 
     //rebote
@@ -182,8 +182,8 @@ export default class Game extends Phaser.Scene {
     this.scoreText.setText(
       `Puntaje: ${this.score}
         T: ${this.shapes["triangle"].count}
-        C: ${this.shapes["square"].count}
-        R: ${this.shapes["diamond"].count}`
+        S: ${this.shapes["square"].count}
+        D: ${this.shapes["diamond"].count}`
     );
 
     this.checkWin();
