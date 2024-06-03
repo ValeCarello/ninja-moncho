@@ -130,14 +130,14 @@ export default class Game extends Phaser.Scene {
     
     // movimiento personaje
     if (this.cursor.left.isDown) {
-      this.personaje.setVelocityX(-160);
+      this.personaje.setVelocityX(-200);
     } else if (this.cursor.right.isDown) {
-      this.personaje.setVelocityX(160);
+      this.personaje.setVelocityX(200);
     } else {
       this.personaje.setVelocityX(0);
     }
     if (this.cursor.up.isDown && this.personaje.body.touching.down) {
-      this.personaje.setVelocityY(-330);
+      this.personaje.setVelocityY(-360);
     }
   }
 
