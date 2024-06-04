@@ -38,16 +38,16 @@ export default class Game extends Phaser.Scene {
   }
 
   create() {
-    // crear elementos
+    //crear elementos
     this.cielo = this.add.image(400, 300, "cielo");
     this.cielo.setScale(2);
 
-    // crear grupa plataformas
+    //crear grupa plataformas
     this.plataformas = this.physics.add.staticGroup();
-    // al grupo de plataformas agregar una plataforma
+    //al grupo de plataformas agregar una plataforma
     this.plataformas.create(400, 568, "plataforma").setScale(2).refreshBody();
     
-    // agregamos otra plataforma en otro lugar
+    //agregamos otra plataforma en otro lugar
     this.plataformas.create(200, 400, "plataforma");
 
     //crear personaje
@@ -61,10 +61,10 @@ export default class Game extends Phaser.Scene {
     //crear teclas
     this.cursor = this.input.keyboard.createCursorKeys();
 
-    // crear grupo recolectables
+    //crear grupo recolectables
     this.recolectables = this.physics.add.group();
 
-    // 1º evento 1 segundo
+    //1º evento 1 segundo
     this.time.addEvent({
       delay: 1000,
       callback: this.onSecond,
@@ -72,7 +72,7 @@ export default class Game extends Phaser.Scene {
       loop: true,
     });
 
-    // add tecla r
+    //añadir tecla r
     this.r = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
 
     // 2º evento 1 segundo
@@ -83,13 +83,13 @@ export default class Game extends Phaser.Scene {
       loop: true,
     });
 
-    //temporisador
+    //temporizador
     this.timerText = this.add.text(10, 10, `tiempo restante: ${this.timer}`, {
       fontSize: "32px",
       fill: "#fff",
     });
 
-    // puntos
+    //puntos
     this.scoreText = this.add.text(
       10,
       50,
